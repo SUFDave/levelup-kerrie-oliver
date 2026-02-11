@@ -352,11 +352,27 @@ const FarmasiPage: React.FC = () => {
     'Recognized as one of the fastest-growing and most innovative direct sales companies.'
   ];
 
-  const successNames = [
-    'Joanna Leyan Bacon',
-    'Letasha Bolton',
-    'Elizabeth McPhillips',
-    'Hannah Pickering'
+  const successStories = [
+    {
+      name: 'Joanna Leyan Bacon',
+      imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/11889457/67fe443608713_Copyoffunnelpic-20.png',
+      story: 'Joanna is a mum of 3 boys and runs her business around her children and multiple commitments. After 12 years in networking and building multiple six-figure businesses, she saw what Farmasi offered and chose to join Team Freedom.'
+    },
+    {
+      name: 'Letasha Bolton',
+      imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/11144086/679d2df38c1a7_4.png',
+      story: 'Letasha is a full-time accountant and mum of two teenage daughters. She runs Farmasi part-time around her commitments and has built a multiple four-figure monthly income, with cash bonuses, car plan rewards, and free travel.'
+    },
+    {
+      name: 'Elizabeth McPhillips',
+      imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/11144086/679d2e3fa1dd0_1.png',
+      story: 'Elizabeth is a mum of 4 and former bank manager. Farmasi enabled her to leave full-time employment and earn multiple four figures each month around family life, while also qualifying for free company travel.'
+    },
+    {
+      name: 'Hannah Pickering',
+      imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/11144086/679d2eac072de_2.png',
+      story: 'Hannah is a single mum of two girls and also runs an Airbnb business. She earns consistent four-figure monthly income with Farmasi around her commitments and funded her first full family holiday through her business.'
+    }
   ];
 
   return (
@@ -375,7 +391,7 @@ const FarmasiPage: React.FC = () => {
               Join Team Freedom
             </h1>
             <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
-              Build an online income with Team Freedom while sharing products people already love.
+              Build an online income with Team Freedom while sharing products people already love. You&apos;ll get access to proven systems, practical mentorship, and a supportive community that helps you grow confidently around your real-life commitments.
             </p>
           </div>
 
@@ -512,11 +528,23 @@ const FarmasiPage: React.FC = () => {
             <p className="text-sm sm:text-base text-slate-300 mb-3">
               These ladies are living proof that anyone, no matter their background or circumstances, can be successful with Team Freedom.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              {successNames.map((name) => (
-                <div key={name} className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-semibold text-slate-100">
-                  {name}
-                </div>
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+              {successStories.map((profile) => (
+                <article key={profile.name} className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center sm:items-start text-center sm:text-left">
+                    <img
+                      src={profile.imageUrl}
+                      alt={profile.name}
+                      className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl object-cover border border-white/10"
+                      loading="lazy"
+                    />
+                    <div>
+                      <p className="text-[11px] uppercase tracking-[0.2em] text-cyan-200 font-semibold">Team Freedom</p>
+                      <h3 className="text-lg sm:text-xl font-bold text-white mt-1">{profile.name}</h3>
+                      <p className="text-sm sm:text-base text-slate-300 mt-2 leading-relaxed">{profile.story}</p>
+                    </div>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
