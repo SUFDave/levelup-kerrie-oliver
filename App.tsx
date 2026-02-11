@@ -292,11 +292,13 @@ const OpportunityPage: React.FC = () => {
 const FarmasiPage: React.FC = () => {
   const featuredVideoUrl = 'https://www.youtube.com/embed/rGebBlaK87s';
   const kerrieImageUrl = 'https://d1yei2z3i6k35z.cloudfront.net/11889457/67fe423e3055b_Copyoffunnelpic-45.png';
+  const meetKerrieIntro = "Hi, I'm Kerrie. I built my business around family life, health challenges, and a deep passion for beauty and networking.";
+  const meetKerrieSummary = "My focus now is helping women create flexible online income with real support, simple systems, and a community that genuinely cares.";
   const meetKerrieStory = [
-    "Hi, I'm Kerrie. My journey has been shaped by early motherhood, health challenges, and a long-standing passion for networking and beauty. At 17, I became a mum, and by 18, I joined my first party-plan business to create more freedom and flexibility.",
-    "Over the years, I trained as a beauty therapist and makeup artist, and I have now been self-employed for more than 25 years. In the last five years, I focused heavily on building online through social media.",
-    "In August 2023, I was diagnosed with breast cancer and stepped back briefly. The community, purpose, and friendships in this industry brought me back, and I returned with renewed focus and gratitude.",
-    "Today, I help women build flexible online income around real-life commitments, especially those managing family responsibilities or health challenges."
+    "At 17, I became a mum, and by 18 I joined my first party-plan company to create flexibility.",
+    "I later trained as a beauty therapist and makeup artist and have now been self-employed for over 25 years.",
+    "In August 2023, I was diagnosed with breast cancer and took a short step back before returning stronger.",
+    "That experience sharpened my mission: help women build income around real life, not the other way around."
   ];
   const meetKerrieHighlights = [
     '25+ years in business',
@@ -394,9 +396,8 @@ const FarmasiPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-3 text-sm sm:text-base text-slate-200 leading-relaxed">
-                  {meetKerrieStory.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
+                  <p className="text-white/95 font-medium">{meetKerrieIntro}</p>
+                  <p>{meetKerrieSummary}</p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -406,6 +407,20 @@ const FarmasiPage: React.FC = () => {
                     </div>
                   ))}
                 </div>
+
+                <details className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-left">
+                  <summary className="cursor-pointer text-sm font-semibold text-cyan-100">
+                    Read Kerrie&apos;s full story
+                  </summary>
+                  <ul className="mt-3 space-y-2">
+                    {meetKerrieStory.map((item) => (
+                      <li key={item} className="flex items-start gap-2 text-sm text-slate-200">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-300 flex-shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
               </div>
             </div>
           </div>
