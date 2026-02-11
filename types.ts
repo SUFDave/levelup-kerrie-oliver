@@ -19,6 +19,7 @@ export interface SocialLink {
 
 export interface CreatorProfile {
   name: string;
+  mainHeading: string;
   username: string;
   bio: string;
   avatarUrl: string;

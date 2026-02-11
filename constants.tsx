@@ -4,8 +4,9 @@ import { CreatorProfile, Product } from './types';
 
 export const PROFILE_DATA: CreatorProfile = {
   name: "Kerrie Oliver",
+  mainHeading: "Work with the #1 team in the UK and earn by sharing viral products, even with no previous experience.",
   username: "@levelupwithkerrieoliver",
-  bio: "Helping creators build profitable digital businesses from scratch. ✨ Get my free guides & premium resources below!",
+  bio: "Join the #1 UK team and use a simple copy-and-paste system to build uncapped income potential from your phone.",
   avatarUrl: "/profile.jpg",
   socials: [
     { platform: 'instagram', url: 'https://instagram.com/levelupwithkerrieoliver' },
@@ -17,6 +18,15 @@ export const PROFILE_DATA: CreatorProfile = {
 };
 
 export const PRODUCTS: Product[] = [
+  {
+    id: '5',
+    title: "Join Team Freedom (Farmasi)",
+    subtitle: "Learn why Farmasi is growing fast and how to get started with Team Freedom.",
+    imageUrl: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=400&h=400",
+    link: "/farmasi",
+    linkType: 'internal',
+    badge: "New"
+  },
   {
     id: '1',
     title: "The Ultimate Stan Store Guide",

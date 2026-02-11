@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { Routes, Route, Link, useParams } from 'react-router-dom';
+import { Routes, Route, Link, NavLink, useParams } from 'react-router-dom';
 import { PROFILE_DATA, PRODUCTS } from './constants';
 import SocialIcons from './components/SocialIcons';
 import ProductCard from './components/ProductCard';
@@ -10,6 +10,11 @@ const App: React.FC = () => {
     // Fallback to a UI-friendly initial avatar if the URL fails (Cyan-500 background)
     e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(PROFILE_DATA.name)}&background=06b6d4&color=fff&size=256`;
   };
+  const opportunityPoints = [
+    'Get paid up to 50% for sharing viral products.',
+    'Use a simple copy-and-paste system.',
+    'Build uncapped income potential from your phone.'
+  ];
 
   return (
     <div className="min-h-screen pb-24 selection:bg-cyan-500/30 text-slate-100">
@@ -27,7 +32,55 @@ const App: React.FC = () => {
             element={
               <>
                 {/* Profile Header */}
-                <header className="flex flex-col items-center text-center mb-10 sm:mb-12">
+                <header className="flex flex-col items-center sm:items-start text-center sm:text-left mb-10 sm:mb-12">
+                  <nav className="w-full mb-6">
+                    <ul className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                      <li>
+                        <NavLink
+                          to="/"
+                          end
+                          className={({ isActive }) =>
+                            `inline-flex items-center rounded-full border px-3 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition ${
+                              isActive
+                                ? 'border-cyan-300/50 bg-cyan-400/20 text-cyan-100'
+                                : 'border-white/15 bg-white/5 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-100'
+                            }`
+                          }
+                        >
+                          Home
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/opportunity"
+                          className={({ isActive }) =>
+                            `inline-flex items-center rounded-full border px-3 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition ${
+                              isActive
+                                ? 'border-cyan-300/50 bg-cyan-400/20 text-cyan-100'
+                                : 'border-white/15 bg-white/5 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-100'
+                            }`
+                          }
+                        >
+                          Opportunity
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/farmasi"
+                          className={({ isActive }) =>
+                            `inline-flex items-center rounded-full border px-3 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition ${
+                              isActive
+                                ? 'border-cyan-300/50 bg-cyan-400/20 text-cyan-100'
+                                : 'border-white/15 bg-white/5 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-100'
+                            }`
+                          }
+                        >
+                          Farmasi
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </nav>
+
                   <div className="relative mb-6">
                     {/* Profile Image Container */}
                     <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-[4px] border-slate-800/80 p-1.5 bg-slate-900 shadow-2xl overflow-hidden ring-4 ring-cyan-500/10">
@@ -51,6 +104,44 @@ const App: React.FC = () => {
                   </p>
 
                   <SocialIcons socials={PROFILE_DATA.socials} />
+
+                  <div className="w-full mt-6 group relative p-4 sm:p-5 md:p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-[22px] sm:rounded-[24px] shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:border-cyan-300/60 hover:ring-1 hover:ring-cyan-400/40 hover:shadow-cyan-500/30 animate-fade-slide-up">
+                    <p className="text-[10px] sm:text-xs text-cyan-200 font-semibold tracking-[0.3em] uppercase mb-2">
+                      Opportunity
+                    </p>
+                    <Link
+                      to="/opportunity"
+                      className="block group-hover:text-cyan-100 transition-colors"
+                      aria-label="View opportunity details"
+                    >
+                      <h2 className="text-[20px] sm:text-[22px] md:text-[26px] font-bold leading-snug text-white tracking-tight max-w-[46ch] mx-auto sm:mx-0">
+                        {PROFILE_DATA.mainHeading}
+                      </h2>
+                    </Link>
+
+                    <ul className="mt-4 space-y-2 text-center sm:text-left">
+                      {opportunityPoints.map((point) => (
+                        <li key={point} className="flex items-start justify-center sm:justify-start gap-2 text-sm sm:text-[15px] text-slate-200">
+                          <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-cyan-300 flex-shrink-0" />
+                          <span>{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link
+                      to="/opportunity"
+                      className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-cyan-300/40 bg-cyan-400/20 px-4 py-3 text-sm sm:text-base font-bold text-cyan-100 shadow-inner transition-all duration-300 hover:bg-cyan-300 hover:text-slate-900 hover:border-cyan-200"
+                    >
+                      Learn More About The Opportunity
+                    </Link>
+                    <Link
+                      to="/farmasi"
+                      className="mt-3 inline-flex w-full items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm sm:text-base font-semibold text-slate-100 transition-all duration-300 hover:bg-white/10 hover:border-cyan-300/40 hover:text-cyan-100"
+                    >
+                      Learn More About Farmasi
+                    </Link>
+                  </div>
+
                 </header>
 
                 {/* Product List */}
@@ -65,6 +156,8 @@ const App: React.FC = () => {
             }
           />
           <Route path="/product/:slug" element={<ProductDetail />} />
+          <Route path="/opportunity" element={<OpportunityPage />} />
+          <Route path="/farmasi" element={<FarmasiPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 
@@ -134,6 +227,155 @@ const ProductDetail: React.FC = () => {
           >
             Get instant access
           </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const OpportunityPage: React.FC = () => {
+  const learnPoints = [
+    'How to earn up to 50% by sharing viral products.',
+    'How to start with a simple copy-and-paste system.',
+    'How to build uncapped income potential from your phone.',
+    'How to create income around your current commitments.'
+  ];
+
+  return (
+    <section className="space-y-6">
+      <Link to="/" className="text-xs uppercase tracking-[0.3em] text-cyan-200 hover:text-cyan-100">
+        ← Back to main page
+      </Link>
+
+      <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 sm:p-8 shadow-xl animate-fade-slide-up">
+        <div className="flex flex-col gap-6 text-center sm:text-left">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/80 font-semibold">
+              Opportunity
+            </p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2 leading-tight tracking-tight">
+              Join the #1 UK Team
+            </h1>
+            <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
+              Work with our team and earn by sharing high-demand digital products, even if you are starting from scratch.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+            <h2 className="text-base sm:text-lg font-bold text-white mb-3">What You&apos;ll Learn</h2>
+            <ul className="space-y-2">
+              {learnPoints.map((point) => (
+                <li key={point} className="flex items-start justify-center sm:justify-start gap-2 text-sm sm:text-base text-slate-200">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyan-300 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://www.levelupwithkerrieoliver.com/opportunity"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-xl border border-cyan-300/40 bg-cyan-400/20 px-4 py-3 text-sm sm:text-base font-bold text-cyan-100 shadow-inner transition-all duration-300 hover:bg-cyan-300 hover:text-slate-900 hover:border-cyan-200"
+            >
+              Yes Kerrie, Send Me The Presentation
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const FarmasiPage: React.FC = () => {
+  const whyFarmasi = [
+    '70+ year old company.',
+    '500+ products.',
+    'Certified and toxic-free products.',
+    'Formulates products in-house.',
+    'Cash rich and debt free.',
+    '33+ countries and growing.',
+    'Luxury products at affordable prices.',
+    'Pays 35% more than industry average.',
+    'Daily incentives and prizes.',
+    'Company trips and worldwide travel.',
+    'Recognized as one of the fastest-growing and most innovative direct sales companies.'
+  ];
+
+  const successNames = [
+    'Joanna Leyan Bacon',
+    'Letasha Bolton',
+    'Elizabeth McPhillips',
+    'Hannah Pickering'
+  ];
+
+  return (
+    <section className="space-y-6">
+      <Link to="/" className="text-xs uppercase tracking-[0.3em] text-cyan-200 hover:text-cyan-100">
+        ← Back to main page
+      </Link>
+
+      <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 sm:p-8 shadow-xl animate-fade-slide-up">
+        <div className="flex flex-col gap-6 text-center sm:text-left">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/80 font-semibold">
+              Farmasi
+            </p>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white mt-2 leading-tight tracking-tight">
+              Join Team Freedom
+            </h1>
+            <p className="text-sm sm:text-base text-slate-300 mt-3 leading-relaxed">
+              Build an online income with Team Freedom while sharing products people already love.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+            <h2 className="text-base sm:text-lg font-bold text-white mb-3">Why Farmasi</h2>
+            <ul className="space-y-2">
+              {whyFarmasi.map((point) => (
+                <li key={point} className="flex items-start justify-center sm:justify-start gap-2 text-sm sm:text-base text-slate-200">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyan-300 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+            <h2 className="text-base sm:text-lg font-bold text-white mb-3">Success Leaves Clues</h2>
+            <p className="text-sm sm:text-base text-slate-300 mb-3">
+              These ladies are living proof that anyone, no matter their background or circumstances, can be successful with Team Freedom.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {successNames.map((name) => (
+                <div key={name} className="rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm font-semibold text-slate-100">
+                  {name}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-cyan-300/30 bg-cyan-400/10 p-4 sm:p-5">
+            <p className="text-sm sm:text-base text-cyan-100 font-semibold">
+              Plus access to our free beginners course for anyone who activates their Farmasi account.
+            </p>
+            <p className="text-sm sm:text-base text-slate-200 mt-2">
+              Get started for just £20/$20 with a sample kit.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://www.levelupwithkerrieoliver.com/farmasi"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-xl border border-cyan-300/40 bg-cyan-400/20 px-4 py-3 text-sm sm:text-base font-bold text-cyan-100 shadow-inner transition-all duration-300 hover:bg-cyan-300 hover:text-slate-900 hover:border-cyan-200"
+            >
+              Join Team Freedom Here
+            </a>
+          </div>
         </div>
       </div>
     </section>
