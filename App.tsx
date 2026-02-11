@@ -290,6 +290,25 @@ const OpportunityPage: React.FC = () => {
 };
 
 const FarmasiPage: React.FC = () => {
+  const featuredVideoUrl = 'https://www.youtube.com/embed/rGebBlaK87s';
+  const kerrieImageUrl = 'https://d1yei2z3i6k35z.cloudfront.net/11889457/67fe423e3055b_Copyoffunnelpic-45.png';
+  const meetKerrieStory = [
+    "Hi, I'm Kerrie. Life's journey has been a blend of early motherhood, navigating health challenges, and a passion for networking and beauty. At 17, I became a mum, and by 18, I joined my first party-plan business, which gave me the freedom and flexibility I needed.",
+    "Over the years, I have worked through health issues that made full-time work impossible. Even so, I trained as a beauty therapist and makeup artist more than a decade ago, and I have run my own business for over 25 years.",
+    "In August 2023, I was diagnosed with breast cancer and stepped back for a while. The community and friendship in this industry drew me back, and I returned with renewed focus. I am now cancer-free and committed to building the life I have always wanted.",
+    "My goal is to support my family, give my husband more freedom from unsociable work hours, and help others create flexible income around real-life commitments.",
+    "If you are dealing with health challenges or need a business that fits around your life, I want you to know it is possible to build something meaningful online."
+  ];
+  const additionalVideos = [
+    { title: 'Farmasi Story', url: 'https://www.youtube.com/embed/v7xcEdTMkyA', type: 'youtube' as const },
+    { title: 'Visit Farmacity', url: 'https://www.youtube.com/embed/RvsoWjpVkpA', type: 'youtube' as const },
+    { title: '10 Ways To Get Paid', url: 'https://www.youtube.com/embed/_q8VDB54NZE', type: 'youtube' as const },
+    {
+      title: 'Team Freedom Intro',
+      url: 'https://d1yei2z3i6k35z.cloudfront.net/11889457/67fe429b49dde_7151877424398391052.mp4',
+      type: 'mp4' as const
+    }
+  ];
   const whyFarmasi = [
     '70+ year old company.',
     '500+ products.',
@@ -332,6 +351,40 @@ const FarmasiPage: React.FC = () => {
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+            <h2 className="text-base sm:text-lg font-bold text-white mb-3">Watch The Overview</h2>
+            <p className="text-sm sm:text-base text-slate-300 mb-4">
+              Watch this quick walkthrough to understand how Team Freedom and Farmasi work.
+            </p>
+            <div className="relative w-full overflow-hidden rounded-xl border border-white/10 bg-black/40 pt-[56.25%]">
+              <iframe
+                src={featuredVideoUrl}
+                title="Farmasi Team Freedom overview video"
+                className="absolute inset-0 h-full w-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+            <h2 className="text-base sm:text-lg font-bold text-white mb-3">Meet Kerrie</h2>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center sm:items-start">
+              <img
+                src={kerrieImageUrl}
+                alt="Kerrie"
+                className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border border-white/10"
+                loading="lazy"
+              />
+              <div className="space-y-3 text-sm sm:text-base text-slate-200 leading-relaxed">
+                {meetKerrieStory.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
             <h2 className="text-base sm:text-lg font-bold text-white mb-3">Why Farmasi</h2>
             <ul className="space-y-2">
               {whyFarmasi.map((point) => (
@@ -341,6 +394,37 @@ const FarmasiPage: React.FC = () => {
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+            <h2 className="text-base sm:text-lg font-bold text-white mb-3">More Videos</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {additionalVideos.map((video) => (
+                <div key={video.url} className="rounded-xl border border-white/10 bg-black/30 p-2">
+                  <p className="text-xs uppercase tracking-[0.2em] text-cyan-200 mb-2 px-1">{video.title}</p>
+                  {video.type === 'youtube' ? (
+                    <div className="relative w-full overflow-hidden rounded-lg border border-white/10 bg-black/40 pt-[56.25%]">
+                      <iframe
+                        src={video.url}
+                        title={video.title}
+                        className="absolute inset-0 h-full w-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    </div>
+                  ) : (
+                    <video
+                      controls
+                      className="w-full rounded-lg border border-white/10 bg-black"
+                      preload="metadata"
+                    >
+                      <source src={video.url} type="video/mp4" />
+                    </video>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
