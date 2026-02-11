@@ -530,12 +530,15 @@ const FarmasiPage: React.FC = () => {
             </p>
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
               {successStories.map((profile) => (
-                <article key={profile.name} className="rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5">
+                <article
+                  key={profile.name}
+                  className="group rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5 shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:border-cyan-300/60 hover:ring-1 hover:ring-cyan-400/40 hover:shadow-cyan-500/30"
+                >
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center sm:items-start text-center sm:text-left">
                     <img
                       src={profile.imageUrl}
                       alt={profile.name}
-                      className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl object-cover border border-white/10"
+                      className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl object-cover border border-white/10 transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
                     <div>
