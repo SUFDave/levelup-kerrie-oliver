@@ -255,7 +255,7 @@ const OpportunityPage: React.FC = () => {
       </Link>
 
       <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 sm:p-8 shadow-xl animate-fade-slide-up">
-        <div className="grid gap-6 text-center sm:text-left lg:grid-cols-12">
+        <div className="grid gap-6 items-start text-center sm:text-left lg:grid-cols-12">
           <div className="lg:col-span-8">
             <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/80 font-semibold">
               Opportunity
@@ -268,7 +268,7 @@ const OpportunityPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-7">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-7 self-start">
             <h2 className="text-base sm:text-lg font-bold text-white mb-3">What You&apos;ll Learn</h2>
             <ul className="space-y-2">
               {learnPoints.map((point) => (
@@ -410,9 +410,9 @@ const FarmasiPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-5">
-            <div className="grid gap-5 sm:gap-6 md:grid-cols-[210px,1fr] md:items-start">
-              <div className="mx-auto md:mx-0 w-full max-w-[210px]">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-5 sm:p-6 lg:col-span-5 self-start">
+            <div className="grid gap-5 sm:gap-6 lg:grid-cols-[180px,1fr] xl:grid-cols-[210px,1fr] lg:items-start">
+              <div className="mx-auto lg:mx-0 w-full max-w-[210px]">
                 <img
                   src={kerrieImageUrl}
                   alt="Kerrie"
@@ -425,10 +425,10 @@ const FarmasiPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-4 text-left">
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/80 font-semibold">Founder Story</p>
-                  <h2 className="text-xl sm:text-2xl font-bold text-white mt-2">Meet Kerrie</h2>
+                  <h2 className="text-2xl font-bold text-white mt-2 tracking-tight">Meet Kerrie</h2>
                 </div>
 
                 <div className="space-y-3 text-sm sm:text-base text-slate-200 leading-relaxed">
@@ -436,15 +436,15 @@ const FarmasiPage: React.FC = () => {
                   <p>{meetKerrieSummary}</p>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div className="flex flex-wrap gap-2">
                   {meetKerrieHighlights.map((highlight) => (
-                    <div key={highlight} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-slate-100">
+                    <div key={highlight} className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-100">
                       {highlight}
                     </div>
                   ))}
                 </div>
 
-                <details className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-left">
+                <details className="rounded-lg border border-white/10 bg-white/5 px-4 py-3">
                   <summary className="cursor-pointer text-sm font-semibold text-cyan-100">
                     Read Kerrie&apos;s full story
                   </summary>
