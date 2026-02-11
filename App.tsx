@@ -1,11 +1,13 @@
 ﻿import React from 'react';
-import { Routes, Route, Link, NavLink, useParams } from 'react-router-dom';
+import { Routes, Route, Link, NavLink, useLocation, useParams } from 'react-router-dom';
 import { PROFILE_DATA, PRODUCTS } from './constants';
 import SocialIcons from './components/SocialIcons';
 import ProductCard from './components/ProductCard';
 import NewsletterForm from './components/NewsletterForm';
 
 const App: React.FC = () => {
+  const location = useLocation();
+  const isHomeRoute = location.pathname === '/';
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     // Fallback to a UI-friendly initial avatar if the URL fails (Cyan-500 background)
     e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(PROFILE_DATA.name)}&background=06b6d4&color=fff&size=256`;
@@ -25,7 +27,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Main Container - Exact Stan Store Width */}
-      <div className="max-w-[560px] mx-auto px-5 sm:px-6 md:px-8 pt-10 sm:pt-16 md:pt-20">
+      <div className={`${isHomeRoute ? 'max-w-[560px]' : 'max-w-[1180px]'} mx-auto px-5 sm:px-6 md:px-8 pt-10 sm:pt-16 md:pt-20`}>
         <Routes>
           <Route
             path="/"
@@ -240,6 +242,11 @@ const OpportunityPage: React.FC = () => {
     'How to build uncapped income potential from your phone.',
     'How to create income around your current commitments.'
   ];
+  const fitPoints = [
+    'Anyone who wants to start online without previous experience.',
+    'People who need flexibility around family or work commitments.',
+    'Creators who want a simple system with community support.'
+  ];
 
   return (
     <section className="space-y-6">
@@ -248,8 +255,8 @@ const OpportunityPage: React.FC = () => {
       </Link>
 
       <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 sm:p-8 shadow-xl animate-fade-slide-up">
-        <div className="flex flex-col gap-6 text-center sm:text-left">
-          <div>
+        <div className="grid gap-6 text-center sm:text-left lg:grid-cols-12">
+          <div className="lg:col-span-8">
             <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/80 font-semibold">
               Opportunity
             </p>
@@ -261,7 +268,7 @@ const OpportunityPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-7">
             <h2 className="text-base sm:text-lg font-bold text-white mb-3">What You&apos;ll Learn</h2>
             <ul className="space-y-2">
               {learnPoints.map((point) => (
@@ -273,12 +280,24 @@ const OpportunityPage: React.FC = () => {
             </ul>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-5">
+            <h2 className="text-base sm:text-lg font-bold text-white mb-3">Who This Is For</h2>
+            <ul className="space-y-2">
+              {fitPoints.map((point) => (
+                <li key={point} className="flex items-start justify-center sm:justify-start gap-2 text-sm sm:text-base text-slate-200">
+                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyan-300 flex-shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 lg:col-span-12">
             <a
               href="https://www.levelupwithkerrieoliver.com/opportunity"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full items-center justify-center rounded-xl border border-cyan-300/40 bg-cyan-400/20 px-4 py-3 text-sm sm:text-base font-bold text-cyan-100 shadow-inner transition-all duration-300 hover:bg-cyan-300 hover:text-slate-900 hover:border-cyan-200"
+              className="inline-flex w-full lg:w-auto items-center justify-center rounded-xl border border-cyan-300/40 bg-cyan-400/20 px-6 py-3 text-sm sm:text-base font-bold text-cyan-100 shadow-inner transition-all duration-300 hover:bg-cyan-300 hover:text-slate-900 hover:border-cyan-200"
             >
               Yes Kerrie, Send Me The Presentation
             </a>
@@ -344,8 +363,8 @@ const FarmasiPage: React.FC = () => {
       </Link>
 
       <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 sm:p-8 shadow-xl animate-fade-slide-up">
-        <div className="flex flex-col gap-6 text-center sm:text-left">
-          <div>
+        <div className="grid gap-6 text-center sm:text-left lg:grid-cols-12">
+          <div className="lg:col-span-8">
             <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/80 font-semibold">
               Farmasi
             </p>
@@ -357,7 +376,24 @@ const FarmasiPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+          <div className="rounded-2xl border border-cyan-300/30 bg-cyan-400/10 p-4 sm:p-5 lg:col-span-4">
+            <p className="text-sm sm:text-base text-cyan-100 font-semibold">
+              Plus access to our free beginners course for anyone who activates their Farmasi account.
+            </p>
+            <p className="text-sm sm:text-base text-slate-200 mt-2">
+              Get started for just £20/$20 with a sample kit.
+            </p>
+            <a
+              href="https://www.levelupwithkerrieoliver.com/farmasi"
+              target="_blank"
+              rel="noreferrer"
+              className="mt-4 inline-flex w-full items-center justify-center rounded-xl border border-cyan-300/40 bg-cyan-400/20 px-4 py-3 text-sm sm:text-base font-bold text-cyan-100 shadow-inner transition-all duration-300 hover:bg-cyan-300 hover:text-slate-900 hover:border-cyan-200"
+            >
+              Join Team Freedom Here
+            </a>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-7">
             <h2 className="text-base sm:text-lg font-bold text-white mb-3">Watch The Overview</h2>
             <p className="text-sm sm:text-base text-slate-300 mb-4">
               Watch this quick walkthrough to understand how Team Freedom and Farmasi work.
@@ -374,7 +410,7 @@ const FarmasiPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-5">
             <div className="grid gap-5 sm:gap-6 md:grid-cols-[210px,1fr] md:items-start">
               <div className="mx-auto md:mx-0 w-full max-w-[210px]">
                 <img
@@ -425,7 +461,7 @@ const FarmasiPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-5">
             <h2 className="text-base sm:text-lg font-bold text-white mb-3">Why Farmasi</h2>
             <ul className="space-y-2">
               {whyFarmasi.map((point) => (
@@ -437,7 +473,7 @@ const FarmasiPage: React.FC = () => {
             </ul>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-7">
             <h2 className="text-base sm:text-lg font-bold text-white mb-3">More Videos</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {additionalVideos.map((video) => (
@@ -468,7 +504,7 @@ const FarmasiPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-12">
             <h2 className="text-base sm:text-lg font-bold text-white mb-3">Success Leaves Clues</h2>
             <p className="text-sm sm:text-base text-slate-300 mb-3">
               These ladies are living proof that anyone, no matter their background or circumstances, can be successful with Team Freedom.
@@ -480,26 +516,6 @@ const FarmasiPage: React.FC = () => {
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="rounded-2xl border border-cyan-300/30 bg-cyan-400/10 p-4 sm:p-5">
-            <p className="text-sm sm:text-base text-cyan-100 font-semibold">
-              Plus access to our free beginners course for anyone who activates their Farmasi account.
-            </p>
-            <p className="text-sm sm:text-base text-slate-200 mt-2">
-              Get started for just £20/$20 with a sample kit.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-3">
-            <a
-              href="https://www.levelupwithkerrieoliver.com/farmasi"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex w-full items-center justify-center rounded-xl border border-cyan-300/40 bg-cyan-400/20 px-4 py-3 text-sm sm:text-base font-bold text-cyan-100 shadow-inner transition-all duration-300 hover:bg-cyan-300 hover:text-slate-900 hover:border-cyan-200"
-            >
-              Join Team Freedom Here
-            </a>
           </div>
         </div>
       </div>
