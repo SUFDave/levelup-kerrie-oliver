@@ -293,11 +293,16 @@ const FarmasiPage: React.FC = () => {
   const featuredVideoUrl = 'https://www.youtube.com/embed/rGebBlaK87s';
   const kerrieImageUrl = 'https://d1yei2z3i6k35z.cloudfront.net/11889457/67fe423e3055b_Copyoffunnelpic-45.png';
   const meetKerrieStory = [
-    "Hi, I'm Kerrie. Life's journey has been a blend of early motherhood, navigating health challenges, and a passion for networking and beauty. At 17, I became a mum, and by 18, I joined my first party-plan business, which gave me the freedom and flexibility I needed.",
-    "Over the years, I have worked through health issues that made full-time work impossible. Even so, I trained as a beauty therapist and makeup artist more than a decade ago, and I have run my own business for over 25 years.",
-    "In August 2023, I was diagnosed with breast cancer and stepped back for a while. The community and friendship in this industry drew me back, and I returned with renewed focus. I am now cancer-free and committed to building the life I have always wanted.",
-    "My goal is to support my family, give my husband more freedom from unsociable work hours, and help others create flexible income around real-life commitments.",
-    "If you are dealing with health challenges or need a business that fits around your life, I want you to know it is possible to build something meaningful online."
+    "Hi, I'm Kerrie. My journey has been shaped by early motherhood, health challenges, and a long-standing passion for networking and beauty. At 17, I became a mum, and by 18, I joined my first party-plan business to create more freedom and flexibility.",
+    "Over the years, I trained as a beauty therapist and makeup artist, and I have now been self-employed for more than 25 years. In the last five years, I focused heavily on building online through social media.",
+    "In August 2023, I was diagnosed with breast cancer and stepped back briefly. The community, purpose, and friendships in this industry brought me back, and I returned with renewed focus and gratitude.",
+    "Today, I help women build flexible online income around real-life commitments, especially those managing family responsibilities or health challenges."
+  ];
+  const meetKerrieHighlights = [
+    '25+ years in business',
+    'Beauty therapist and makeup artist',
+    'Built online through social media',
+    'Focused on flexible income for women'
   ];
   const additionalVideos = [
     { title: 'Farmasi Story', url: 'https://www.youtube.com/embed/v7xcEdTMkyA', type: 'youtube' as const },
@@ -368,18 +373,39 @@ const FarmasiPage: React.FC = () => {
           </div>
 
           <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5">
-            <h2 className="text-base sm:text-lg font-bold text-white mb-3">Meet Kerrie</h2>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 items-center sm:items-start">
-              <img
-                src={kerrieImageUrl}
-                alt="Kerrie"
-                className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl object-cover border border-white/10"
-                loading="lazy"
-              />
-              <div className="space-y-3 text-sm sm:text-base text-slate-200 leading-relaxed">
-                {meetKerrieStory.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
+            <div className="grid gap-5 sm:gap-6 md:grid-cols-[210px,1fr] md:items-start">
+              <div className="mx-auto md:mx-0 w-full max-w-[210px]">
+                <img
+                  src={kerrieImageUrl}
+                  alt="Kerrie"
+                  className="w-full aspect-[4/5] rounded-2xl object-cover border border-white/10 shadow-lg"
+                  loading="lazy"
+                />
+                <div className="mt-3 rounded-xl border border-cyan-300/20 bg-cyan-400/10 px-3 py-2">
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-cyan-100 font-semibold">Team Freedom</p>
+                  <p className="text-sm text-slate-200 mt-1">Founder-led mentorship and support.</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/80 font-semibold">Founder Story</p>
+                  <h2 className="text-xl sm:text-2xl font-bold text-white mt-2">Meet Kerrie</h2>
+                </div>
+
+                <div className="space-y-3 text-sm sm:text-base text-slate-200 leading-relaxed">
+                  {meetKerrieStory.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {meetKerrieHighlights.map((highlight) => (
+                    <div key={highlight} className="rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm font-medium text-slate-100">
+                      {highlight}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
