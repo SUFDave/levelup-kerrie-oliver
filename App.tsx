@@ -27,62 +27,63 @@ const App: React.FC = () => {
       </div>
 
       {/* Main Container - Exact Stan Store Width */}
-      <div className={`${isHomeRoute ? 'max-w-[560px]' : 'max-w-[1180px]'} mx-auto px-5 sm:px-6 md:px-8 pt-10 sm:pt-16 md:pt-20`}>
+      <div className="max-w-[1180px] mx-auto px-5 sm:px-6 md:px-8 pt-10 sm:pt-16 md:pt-20">
         <Routes>
           <Route
             path="/"
             element={
               <>
-                {/* Profile Header */}
-                <header className="flex flex-col items-center sm:items-start text-center sm:text-left mb-10 sm:mb-12">
-                  <nav className="w-full mb-6">
-                    <ul className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
-                      <li>
-                        <NavLink
-                          to="/"
-                          end
-                          className={({ isActive }) =>
-                            `inline-flex items-center rounded-full border px-3 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition ${
-                              isActive
-                                ? 'border-cyan-300/50 bg-cyan-400/20 text-cyan-100'
-                                : 'border-white/15 bg-white/5 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-100'
-                            }`
-                          }
-                        >
-                          Home
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          to="/opportunity"
-                          className={({ isActive }) =>
-                            `inline-flex items-center rounded-full border px-3 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition ${
-                              isActive
-                                ? 'border-cyan-300/50 bg-cyan-400/20 text-cyan-100'
-                                : 'border-white/15 bg-white/5 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-100'
-                            }`
-                          }
-                        >
-                          Opportunity
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink
-                          to="/farmasi"
-                          className={({ isActive }) =>
-                            `inline-flex items-center rounded-full border px-3 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition ${
-                              isActive
-                                ? 'border-cyan-300/50 bg-cyan-400/20 text-cyan-100'
-                                : 'border-white/15 bg-white/5 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-100'
-                            }`
-                          }
-                        >
-                          Farmasi
-                        </NavLink>
-                      </li>
-                    </ul>
-                  </nav>
+                <nav className="w-full mb-6 sm:mb-8">
+                  <ul className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                    <li>
+                      <NavLink
+                        to="/"
+                        end
+                        className={({ isActive }) =>
+                          `inline-flex items-center rounded-full border px-3 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition ${
+                            isActive
+                              ? 'border-cyan-300/50 bg-cyan-400/20 text-cyan-100'
+                              : 'border-white/15 bg-white/5 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-100'
+                          }`
+                        }
+                      >
+                        Home
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/opportunity"
+                        className={({ isActive }) =>
+                          `inline-flex items-center rounded-full border px-3 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition ${
+                            isActive
+                              ? 'border-cyan-300/50 bg-cyan-400/20 text-cyan-100'
+                              : 'border-white/15 bg-white/5 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-100'
+                          }`
+                        }
+                      >
+                        Opportunity
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/farmasi"
+                        className={({ isActive }) =>
+                          `inline-flex items-center rounded-full border px-3 py-1.5 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] transition ${
+                            isActive
+                              ? 'border-cyan-300/50 bg-cyan-400/20 text-cyan-100'
+                              : 'border-white/15 bg-white/5 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-100'
+                          }`
+                        }
+                      >
+                        Farmasi
+                      </NavLink>
+                    </li>
+                  </ul>
+                </nav>
 
+                <div className="grid gap-6 lg:grid-cols-12 lg:items-start mb-10 sm:mb-12">
+                  {/* Profile Header */}
+                  <header className="flex flex-col items-center sm:items-start text-center sm:text-left lg:col-span-5">
                   <div className="relative mb-6">
                     {/* Profile Image Container */}
                     <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full border-[4px] border-slate-800/80 p-1.5 bg-slate-900 shadow-2xl overflow-hidden ring-4 ring-cyan-500/10">
@@ -106,8 +107,10 @@ const App: React.FC = () => {
                   </p>
 
                   <SocialIcons socials={PROFILE_DATA.socials} />
+                  </header>
 
-                  <div className="w-full mt-6 group relative p-4 sm:p-5 md:p-6 bg-white/5 backdrop-blur-md border border-white/10 rounded-[22px] sm:rounded-[24px] shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:border-cyan-300/60 hover:ring-1 hover:ring-cyan-400/40 hover:shadow-cyan-500/30 animate-fade-slide-up">
+                  <aside className="lg:col-span-7">
+                  <div className="w-full group relative p-5 sm:p-6 md:p-7 bg-white/5 backdrop-blur-md border border-white/10 rounded-[22px] sm:rounded-[24px] shadow-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:border-cyan-300/60 hover:ring-1 hover:ring-cyan-400/40 hover:shadow-cyan-500/30 animate-fade-slide-up">
                     <p className="text-[10px] sm:text-xs text-cyan-200 font-semibold tracking-[0.3em] uppercase mb-2">
                       Opportunity
                     </p>
@@ -132,22 +135,22 @@ const App: React.FC = () => {
 
                     <Link
                       to="/opportunity"
-                      className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-cyan-300/40 bg-cyan-400/20 px-4 py-3 text-sm sm:text-base font-bold text-cyan-100 shadow-inner transition-all duration-300 hover:bg-cyan-300 hover:text-slate-900 hover:border-cyan-200"
+                      className="mt-5 inline-flex w-full lg:w-auto items-center justify-center rounded-xl border border-cyan-300/40 bg-cyan-400/20 px-4 py-3 text-sm sm:text-base font-bold text-cyan-100 shadow-inner transition-all duration-300 hover:bg-cyan-300 hover:text-slate-900 hover:border-cyan-200"
                     >
                       Learn More About The Opportunity
                     </Link>
                     <Link
                       to="/farmasi"
-                      className="mt-3 inline-flex w-full items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm sm:text-base font-semibold text-slate-100 transition-all duration-300 hover:bg-white/10 hover:border-cyan-300/40 hover:text-cyan-100"
+                      className="mt-3 lg:mt-0 lg:ml-3 inline-flex w-full lg:w-auto items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm sm:text-base font-semibold text-slate-100 transition-all duration-300 hover:bg-white/10 hover:border-cyan-300/40 hover:text-cyan-100"
                     >
                       Learn More About Farmasi
                     </Link>
                   </div>
-
-                </header>
+                  </aside>
+                </div>
 
                 {/* Product List */}
-                <main className="space-y-3 sm:space-y-4">
+                <main className="grid gap-3 sm:gap-4 lg:grid-cols-2">
                   {PRODUCTS.map((product) => (
                     <ProductCard key={product.id} product={product} />
                   ))}
