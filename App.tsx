@@ -393,7 +393,7 @@ const FarmasiPage: React.FC = () => {
             </a>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-7">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-4 sm:p-5 lg:col-span-12">
             <h2 className="text-base sm:text-lg font-bold text-white mb-3">Watch The Overview</h2>
             <p className="text-sm sm:text-base text-slate-300 mb-4">
               Watch this quick walkthrough to understand how Team Freedom and Farmasi work.
@@ -410,9 +410,9 @@ const FarmasiPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-5 sm:p-6 lg:col-span-5 self-start">
-            <div className="grid gap-5 sm:gap-6 lg:grid-cols-[180px,1fr] xl:grid-cols-[210px,1fr] lg:items-start">
-              <div className="mx-auto lg:mx-0 w-full max-w-[210px]">
+          <div className="rounded-2xl border border-white/10 bg-slate-950/20 p-6 sm:p-7 lg:col-span-12 self-start">
+            <div className="grid gap-6 sm:gap-7 xl:grid-cols-[260px,1fr] xl:items-start">
+              <div className="mx-auto xl:mx-0 w-full max-w-[260px]">
                 <img
                   src={kerrieImageUrl}
                   alt="Kerrie"
@@ -425,26 +425,26 @@ const FarmasiPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="space-y-4 text-left">
+              <div className="space-y-5 text-left">
                 <div>
                   <p className="text-xs uppercase tracking-[0.3em] text-cyan-200/80 font-semibold">Founder Story</p>
-                  <h2 className="text-2xl font-bold text-white mt-2 tracking-tight">Meet Kerrie</h2>
+                  <h2 className="text-[28px] sm:text-[32px] font-bold text-white mt-2 tracking-tight">Meet Kerrie</h2>
                 </div>
 
-                <div className="space-y-3 text-sm sm:text-base text-slate-200 leading-relaxed">
+                <div className="max-w-[72ch] space-y-3 text-[15px] sm:text-base text-slate-200 leading-relaxed">
                   <p className="text-white/95 font-medium">{meetKerrieIntro}</p>
                   <p>{meetKerrieSummary}</p>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
                   {meetKerrieHighlights.map((highlight) => (
-                    <div key={highlight} className="rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-xs sm:text-sm font-medium text-slate-100">
+                    <div key={highlight} className="rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm font-medium text-slate-100 text-center">
                       {highlight}
                     </div>
                   ))}
                 </div>
 
-                <details className="rounded-lg border border-white/10 bg-white/5 px-4 py-3">
+                <details className="max-w-[72ch] rounded-lg border border-white/10 bg-white/5 px-4 py-3">
                   <summary className="cursor-pointer text-sm font-semibold text-cyan-100">
                     Read Kerrie&apos;s full story
                   </summary>
